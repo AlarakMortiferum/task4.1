@@ -4,10 +4,18 @@ import org.junit.jupiter.api.Test;
 import ru.netology.patterns.data.DataGenerator;
 import ru.netology.patterns.data.UserInfo;
 import ru.netology.patterns.page.DeliveryOrderPage;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class DeliveryTest {
+
+    @BeforeAll
+    static void setupAllure() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 
     @Test
     void shouldReplanMeeting() {
